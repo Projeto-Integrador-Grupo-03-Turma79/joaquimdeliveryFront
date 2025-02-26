@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
 import Sobre from './pages/sobre/Sobre';
 import Restaurantes from './pages/restaurantes/Restaurantes';
+import FormCategorias from './components/categorias/FormCategorias';
 
 
 
@@ -20,6 +21,8 @@ function App() {
           <Route path="/home" element={<Home/>} />
           <Route path="/sobre" element={<Sobre/>} /> 
           <Route path="/restaurantes" element={<Restaurantes/>} />
+          <Route path="/cadastrarcategorias" element={<FormCategorias />} />
+          <Route path="/editarcategorias/:id" element={<FormCategorias />} />
         </Routes>
         </div>
         <Footer />
