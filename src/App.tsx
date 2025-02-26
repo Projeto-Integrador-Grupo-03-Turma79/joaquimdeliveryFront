@@ -6,6 +6,7 @@ import Home from './pages/home/Home';
 import Sobre from './pages/sobre/Sobre';
 import Restaurantes from './pages/restaurantes/Restaurantes';
 import FormCategorias from './components/categorias/FormCategorias';
+import FormRestaurantes from './components/restaurantes/FormRestaurantes';
 
 
 
@@ -23,6 +24,8 @@ function App() {
           <Route path="/restaurantes" element={<Restaurantes/>} />
           <Route path="/cadastrarcategorias" element={<FormCategorias />} />
           <Route path="/editarcategorias/:id" element={<FormCategorias />} />
+          <Route path="/cadastrarrestaurantes" element={<FormRestaurantes />} />
+          <Route path="/editarrestaurantes/:id" element={<FormRestaurantes />} />
         </Routes>
         </div>
         <Footer />
