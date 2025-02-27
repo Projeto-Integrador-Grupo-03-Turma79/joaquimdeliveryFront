@@ -1,3 +1,4 @@
+
 import Restaurante from "./Restaurante";
 
 export default interface Categoria {
@@ -5,3 +6,5 @@ export default interface Categoria {
     descricao: string;
     restaurante?: Restaurante | null;
 }
+
+
