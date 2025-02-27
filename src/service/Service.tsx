@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://blogpessoal-uk56.onrender.com'
+    baseURL: 'https://joaquimdelivery.onrender.com/'
 })
 
 export const buscar = async (url: string, setDados: Function) => {

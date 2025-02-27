@@ -4,7 +4,8 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
 import Sobre from './pages/sobre/Sobre';
-import Restaurantes from './pages/restaurantes/Restaurantes';
+import ListaCategorias from './components/categorias/listacategorias/ListaCategorias';
+import ListaRestaurantes from './components/restaurantes/listarestaurantes/ListaRestaurantes';
 
 
 
@@ -19,7 +20,8 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/sobre" element={<Sobre/>} /> 
-          <Route path="/restaurantes" element={<Restaurantes/>} />
+          <Route path="/listacategorias" element={<ListaCategorias/>} />
+          <Route path="/listarestaurantes" element={<ListaRestaurantes/>} />
         </Routes>
         </div>
         <Footer />

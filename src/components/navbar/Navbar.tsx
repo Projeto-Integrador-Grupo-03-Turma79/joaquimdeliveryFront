@@ -15,7 +15,7 @@ export default function Navbar()  {
 
                 <div className='flex gap-20 items-center justify-center'>
                     <Link to='/sobre' className='hover:underline'>Sobre nós</Link>
-                    <Link to='/restaurantes' className='hover:underline'>Restaurantes</Link>
+                    <Link to='/listacategorias' className='hover:underline'>Lista de Categorias</Link>
                     <a onClick={saida} href="https:/google.com" className='hover:underline'> Sair </a>
                 </div>
             </div>
