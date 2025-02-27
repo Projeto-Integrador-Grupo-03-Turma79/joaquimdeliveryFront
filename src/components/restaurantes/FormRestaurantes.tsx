@@ -26,7 +26,7 @@ function FormRestaurantes() {
                 await buscar(`/restaurantes/${id}`, setRestaurante)
             } catch (error: any) {
                 alert("Error")
-                    navigate("/home")
+                    navigate("/listarestaurantes")
         
             }
         }
@@ -36,7 +36,7 @@ function FormRestaurantes() {
                 await buscar(`/categoria/${id}`, setCategoria)
             } catch (error: any) {
                 alert("Error")
-                    navigate("/")
+                    navigate("/listarestaurantes")
         
             }
         }
@@ -46,7 +46,7 @@ function FormRestaurantes() {
                 await buscar(`/categoria/all`, setCategorias)
             } catch (error: any) {
                 alert("Error")
-                    navigate("/")
+                    navigate("/listarestaurantes")
         
             }
         }
@@ -80,7 +80,7 @@ function FormRestaurantes() {
                 }
 
             function retornar() {
-                navigate("/home")
+                navigate("/listarestaurantes")
                 }
 
 
@@ -188,10 +188,10 @@ function FormRestaurantes() {
                 </div>
         
 
-                    <button className="rounded text-slate-100 bg-[#f5a74ecc] hover:bg-[#e6aa7dcc] w-1/2 py-2 mx-auto flex justify-center" 
-                        type="submit">
-                    Cadastrar
-                    </button>
+                <button className="rounded-[64px] shadow-2xl text-white font-bold bg-[#f18c18] hover:bg-[#e6aa7d] w-1/2 py-2 mx-auto flex justify-center" 
+                type="submit">
+            Cadastrar
+            </button>
         
                 </form>
             </div>

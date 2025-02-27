@@ -41,7 +41,7 @@ function DeletarRestaurante() {
     }
 
     function retornar() {
-        navigate("/restaurantes")
+        navigate("/listarrestaurantes")
     }
 
 

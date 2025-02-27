@@ -41,7 +41,7 @@ function DeletarCategoria() {
     }
 
     function retornar() {
-        navigate("/categoria")
+        navigate("/listacategorias")
     }
 
 

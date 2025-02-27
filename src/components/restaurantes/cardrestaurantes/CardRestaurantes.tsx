@@ -1,6 +1,6 @@
 import logo from "../../../assets/joaquimdelilogo2.svg";
 import { Link } from "react-router-dom";
-import Restaurante from "../../../assets/models/Restaurante";
+import Restaurante from "../../../models/Restaurante";
 
 
 interface CardRestaurantesProps {
@@ -31,11 +31,11 @@ export default function CardRestaurantes( {restaurante}: CardRestaurantesProps) 
             </div>
 
             <div className="flex  bg-gray-200">
-                <Link to={`/editartema/${restaurante.id}`} className='w-full text-slate-100 bg-[#c07512] hover:bg-[#8a540e] flex items-center justify-center py-2 m-3 rounded-[20px] '>
+                <Link to={`/editarrestaurantes/${restaurante.id}`} className='w-full text-slate-100 bg-[#c07512] hover:bg-[#8a540e] flex items-center justify-center py-2 m-3 rounded-[20px] '>
             	    <button>Editar</button>
                 </Link>
 
-                <Link to={`/deletartema/${restaurante.id}`} className='text-slate-100 bg-orange-700 hover:bg-orange-800 w-full flex items-center justify-center py-2 m-3 rounded-[20px]'>
+                <Link to={`/deletarrestaurantes/${restaurante.id}`} className='text-slate-100 bg-orange-700 hover:bg-orange-800 w-full flex items-center justify-center py-2 m-3 rounded-[20px]'>
 	                <button>Deletar</button>
                 </Link>
             </div>

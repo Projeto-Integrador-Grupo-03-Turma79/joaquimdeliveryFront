@@ -1,3 +1,5 @@
+import logo from "../../assets/imagemhome.svg";
+
 export default function Home() {
     return (
         <>
@@ -13,7 +15,7 @@ export default function Home() {
                     </div>
 
                     <div id="imagem" className="flex justify-center ">
-                        {/* <img src={null} alt="Imagem Página Home" /> */}
+                        <img src={logo} alt="Imagem Página Home" />
                     </div>
                 </div>
                 <div className="container flex flex-col items-center allign-center w-full bg-gray-200 rounded-4xl -mt-10 mb-15 max-w-7xl" >

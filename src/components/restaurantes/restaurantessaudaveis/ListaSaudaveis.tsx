@@ -14,7 +14,7 @@ export default function ListaRestaurantes() {
     async function buscarRestaurantes() {
 
         try {
-            await buscar('/restaurantes/all', setRestaurante)
+            await buscar('/restaurantes/saudavel', setRestaurante)
         } catch (error: any) {
             alert("Deu erro aqui em, man")
         }
@@ -32,12 +32,7 @@ export default function ListaRestaurantes() {
           </div>
           )}
 
-            <div className="flex flex-col justify-center items-center mt-10"> 
-                <Link to={"/listasaudaveis"} className='p-15 text-3xl text-white font-bold bg-[#52d66f] hover:bg-[#2ab148] flex items-center justify-center py-2 m-3 rounded-[64px] shadow-2xl transition-transform hover:scale-102 '>
-                    <button>Nossas Recomendações Saudáveis</button>
-                </Link> 
-            </div>
-            <div className="grid justify-center w-full py-12 bg-white grid-rows-2">
+            <div className="grid justify-center w-full py-12 bg-white grid-rows-3">
                 <div className="container flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                        {restaurantes.map((restaurante) => ( 
