@@ -9,8 +9,13 @@ import ListaCategorias from './components/categorias/listacategorias/ListaCatego
 import ListaRestaurantes from './components/restaurantes/listarestaurantes/ListaRestaurantes';
 
 import Restaurantes from './pages/restaurantes/Restaurantes';
+
+import DeletarRestaurante from './components/restaurantes/deletarrestaurante/DeletarRestaurante';
+import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria';
+
 import FormCategorias from './components/categorias/FormCategorias';
 import FormRestaurantes from './components/restaurantes/FormRestaurantes';
+
 
 
 
@@ -31,10 +36,15 @@ function App() {
           <Route path="/listarestaurantes" element={<ListaRestaurantes/>} />
 
           <Route path="/restaurantes" element={<Restaurantes/>} />
+
+          <Route path="/deletar/:id" element={<DeletarRestaurante/>} />
+          <Route path="/categoria/deletar/:id" element={<DeletarCategoria/>} />
+
           <Route path="/cadastrarcategorias" element={<FormCategorias />} />
           <Route path="/editarcategorias/:id" element={<FormCategorias />} />
           <Route path="/cadastrarrestaurantes" element={<FormRestaurantes />} />
           <Route path="/editarrestaurantes/:id" element={<FormRestaurantes />} />
+
 
         </Routes>
         </div>

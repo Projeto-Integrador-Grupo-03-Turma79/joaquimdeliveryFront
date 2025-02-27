@@ -4,8 +4,8 @@ export default function Home() {
             <div className="bg-white flex flex-col justify-center items-center">
                 <div className='container grid grid-cols-2 text-black pt-20 pb-30'>
                     <div className="flex flex-col gap-4 items-center justify-center py-4">
-                        <h2 className='text-7xl font-bold'>Sistema de RH Ivan</h2>
-                        <p className='text-2xl'> Onde a demissão de hoje é a contratação de amanhã! </p>
+                        <h2 className='text-7xl font-bold'>Delivery Joaquim</h2>
+                        <p className='text-2xl'> Comida para você e dinheiro para mim! </p>
                         <div className="flex justify-around gap-4">
                             <div className="flex justify-around gap-4">
                             </div>
