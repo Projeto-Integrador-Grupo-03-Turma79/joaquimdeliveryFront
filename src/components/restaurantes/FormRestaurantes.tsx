@@ -2,19 +2,26 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { atualizar, buscar, cadastrar } from "../../service/Service"
 import Restaurante from "../../models/Restaurante"
+import Categoria from "../../models/Categoria"
 
 function FormRestaurantes() {
 
     const navigate = useNavigate()
 
-    const [restaurante, setRestaurante] = useState<Restaurante>({} as Restaurante)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [categorias, setCategorias] = useState<Categoria[]>([])
+
+    const [categoria, setCategoria] = useState<Categoria>({ id: 0, descricao: ''})
+    const [restaurante, setRestaurante] = useState<Restaurante>({} as Restaurante)
 
     const [saudavel, setSaudavel] = useState<boolean>(false)
 
+    const [avaliacao, setAvaliacao] = useState("")
+ 
     const { id } = useParams<{ id: string }>()
 
-    async function buscarPorId(id: string) {
+
+    async function buscarRestaurantePorId(id: string) {
             try {
                 await buscar(`/restaurantes/${id}`, setRestaurante)
             } catch (error: any) {
@@ -24,17 +31,51 @@ function FormRestaurantes() {
             }
         }
 
-         useEffect(() => {
-                if (id !== undefined) {
-                    buscarPorId(id)
-                }
-            }, [id])
+        async function buscarCategoriaPorId(id: string) {
+            try {
+                await buscar(`/categoria/${id}`, setCategoria)
+            } catch (error: any) {
+                alert("Error")
+                    navigate("/")
         
+            }
+        }
+
+        async function buscarCategoria() {
+            try {
+                await buscar(`/categoria/all`, setCategorias)
+            } catch (error: any) {
+                alert("Error")
+                    navigate("/")
+        
+            }
+        }
+
+
+        useEffect(() => {
+            buscarCategoria()
+    
+            if (id !== undefined) {
+                buscarRestaurantePorId(id)
+            }
+        }, [id])
+        
+
+            useEffect(() => {
+                setRestaurante({
+                    ...restaurante,
+                    categoria: categoria,
+                    saudavel: saudavel
+                })
+            }, [categoria, saudavel])
+
 
             function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
                     setRestaurante({
                         ...restaurante,
-                        [e.target.name]: e.target.value
+                        avaliacao: +avaliacao,
+                        [e.target.name]: e.target.value, 
+                        categoria: categoria
                     })
                 }
 
@@ -67,6 +108,7 @@ function FormRestaurantes() {
                 retornar()
             }
 
+            console.log(restaurante)
                 
     return (
 
@@ -84,22 +126,68 @@ function FormRestaurantes() {
                        <input type="text" placeholder="Nome"
                               name="nome" className="border-2 border-slate-700 rounded p-2" value={restaurante.nome}
                               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                       
+                       <label htmlFor="horario_funcionamento">Horário de Funcionamento</label>
+        
+                       <input type="text" placeholder="Horário de Funcionamento"
+                              name="horario_funcionamento" className="border-2 border-slate-700 rounded p-2" value={restaurante.horario_funcionamento}
+                              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                    </div>
 
-                   <div>
+                   <div className="flex flex-col gap-2">
+                       
+                   <label htmlFor="avaliacao">Avaliação de 1 a 10:</label>
+        
+                       <input type="number" name="avaliacao" className="border-2 border-slate-700 rounded p-2"
+                         min="1" max="10"   onChange={(e: ChangeEvent<HTMLInputElement>) => setAvaliacao(e.target.value)}/>
+                   </div>
+
+
+                   <div className="flex flex-col gap-2">
+                       
+                       <label htmlFor="endereco">Endereço</label>
+        
+                       <input type="text" placeholder="Endereço do Restaurante"
+                              name="endereco" className="border-2 border-slate-700 rounded p-2" value={restaurante.endereco}
+                              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
+                   </div>
+
+
+                <div>
                         <label>Escolha Saudável</label>
-                     <br />
-            <input type="radio" id="sim" name="saudavel" value="true" checked={saudavel === true} onChange={() => setSaudavel(true)}/>
+                             <br />
+                          <input type="radio" id="sim" name="saudavel" value="true" checked={saudavel === true} onChange={() => setSaudavel(true)}/>
       
-            <label htmlFor="sim">Sim</label>
-                    <br />
+                             <label htmlFor="sim">Sim</label>
+                          <br />
       
-            <input type="radio" id="nao" name="saudavel" value="false" checked={saudavel === false} onChange={() => setSaudavel(false)}/>
+                          <input type="radio" id="nao" name="saudavel" value="false" checked={saudavel === false} onChange={() => setSaudavel(false)}/>
         
-             <label htmlFor="nao">Não</label>
-                <br />
-            </div>
+                               <label htmlFor="nao">Não</label>
+                              <br />
+                </div>
+
+
+                <div className="flex flex-col gap-2">
+                    <p>Categoria do Restaurante</p>
+                    <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded'
+                        onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+                    >
+                        <option value="" selected disabled>Selecione uma Categoria</option>
+
+                        {categorias.map((categoria) => (
+                            <>
+                                <option value={categoria.id} >{categoria.descricao}</option>
+                            </>
+                        ))}
+
+                    </select>
+                </div>
         
+
                     <button className="rounded text-slate-100 bg-[#f5a74ecc] hover:bg-[#e6aa7dcc] w-1/2 py-2 mx-auto flex justify-center" 
                         type="submit">
                     Cadastrar

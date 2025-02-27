@@ -12,7 +12,7 @@ function FormCategorias() {
 
     const { id } = useParams<{ id: string }>()
 
-    async function buscarPorId(id: string) {
+    async function buscarCategoriaPorId(id: string) {
         try {
             await buscar(`/categoria/${id}`, setCategoria)
         } catch (error: any) {
@@ -24,7 +24,7 @@ function FormCategorias() {
 
     useEffect(() => {
         if (id !== undefined) {
-            buscarPorId(id)
+            buscarCategoriaPorId(id)
         }
     }, [id])
 
