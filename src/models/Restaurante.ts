@@ -9,3 +9,4 @@ export default interface Restaurante {
     saudavel: boolean
     categoria?: Categoria | null
   }
+
